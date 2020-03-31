@@ -1,15 +1,15 @@
 /******************************************************
 	Author : Masujima Ryohei
 	Date   : 2016/12/11~2016/12/25
-	Summary: A task for entry to Mobile Factory.
+	Summary: Time manager.
 *******************************************************/
 
-// ƒ‰ƒCƒuƒ‰ƒŠƒwƒbƒ_
+// ãƒ©ã‚¤ãƒ–ãƒ©ãƒªãƒ˜ãƒƒãƒ€
 #include <iostream>
 #include <conio.h>
 #include <cstdlib>
 
-// Ž©ìƒwƒbƒ_
+// è‡ªä½œãƒ˜ãƒƒãƒ€
 #include "TimeUtility.h"
 #include "IOUtility.h"
 
@@ -20,46 +20,46 @@ const int DAYTIME_MAX = 23;
 
 int main(void)
 {
-	// ƒNƒ‰ƒX–¼‚ðÈ—ª
+	// ã‚¯ãƒ©ã‚¹åã‚’çœç•¥
 	typedef IOUtility io;
 
-	// ƒƒCƒ“ƒ‹[ƒv
+	// ãƒ¡ã‚¤ãƒ³ãƒ«ãƒ¼ãƒ—
 	while (true)
 	{
-		// ”ÍˆÍ‚ÌŠJŽnŽž(start)
+		// ç¯„å›²ã®é–‹å§‹æ™‚åˆ»(start)
 		int s;
-		// ”ÍˆÍ‚ÌI—¹Žž(end)
+		// ç¯„å›²ã®çµ‚äº†æ™‚åˆ»(end)
 		int e;
-		// ƒ`ƒFƒbƒN‚µ‚½‚¢Žž(time)
+		// ãƒã‚§ãƒƒã‚¯ã—ãŸã„æ™‚åˆ»(time)
 		int t;
 		
-		io::log("”ÍˆÍ‚ÌŠJŽnŽž‚ð“ü—Í‚µ‚Ä‚­‚¾‚³‚¢(0~23)");
+		io::log("ç¯„å›²ã®é–‹å§‹æ™‚åˆ»ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„(0~23)");
 		while (!io::inputNumberWithLimit(s, DAYTIME_MIN, DAYTIME_MAX))
 		{
-			io::log("0~23‚Ü‚Å‚Ì³‚µ‚¢”’l‚ð“ü—Í‚µ‚Ä‚­‚¾‚³‚¢");
+			io::log("0~23ã¾ã§ã®æ­£ã—ã„æ•°å€¤ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„");
 		}
 
-		io::log("”ÍˆÍ‚ÌI—¹Žž‚ð“ü—Í‚µ‚Ä‚­‚¾‚³‚¢(0~23)");
+		io::log("ç¯„å›²ã®çµ‚äº†æ™‚åˆ»ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„(0~23)");
 		while (!io::inputNumberWithLimit(e, DAYTIME_MIN, DAYTIME_MAX))
 		{
-			io::log("0~23‚Ü‚Å‚Ì³‚µ‚¢”’l‚ð“ü—Í‚µ‚Ä‚­‚¾‚³‚¢");
+			io::log("0~23ã¾ã§ã®æ­£ã—ã„æ•°å€¤ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„");
 		}
 
-		io::log("ƒ`ƒFƒbƒN‚µ‚½‚¢Žž‚ð“ü—Í‚µ‚Ä‚­‚¾‚³‚¢");
+		io::log("ãƒã‚§ãƒƒã‚¯ã—ãŸã„æ™‚åˆ»ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„");
 		if (!io::inputNumberWithLimit(t, DAYTIME_MIN, DAYTIME_MAX))
 		{
-			io::log("0~23‚Ü‚Å‚Ì³‚µ‚¢”’l‚ð“ü—Í‚µ‚Ä‚­‚¾‚³‚¢");
+			io::log("0~23ã¾ã§ã®æ­£ã—ã„æ•°å€¤ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„");
 		}
-		io::log("‚»‚ÌŽž‚Í”ÍˆÍ‚É",NULL);
+		io::log("ãã®æ™‚åˆ»ã¯ç¯„å›²ã«",NULL);
 
 		if (TimeUtility::checkWhetherTimeIsOfRange(t, s, e))
-			io::log("ŠÜ‚Ü‚ê‚Ä‚¢‚Ü‚·B");
+			io::log("å«ã¾ã‚Œã¦ã„ã¾ã™ã€‚");
 		else
-			io::log("ŠÜ‚Ü‚ê‚Ä‚¢‚Ü‚¹‚ñB");
+			io::log("å«ã¾ã‚Œã¦ã„ã¾ã›ã‚“ã€‚");
 
 
-		io::log("ƒvƒƒOƒ‰ƒ€‚ðI—¹‚·‚é‚È‚çESCƒL[‚ð‰Ÿ‚µ‚Ä‚­‚¾‚³‚¢B");
-		io::log("‚»‚êˆÈŠO‚ð‰Ÿ‚³‚ê‚½ê‡A‚à‚¤ˆê“xƒ`ƒFƒbƒN‚ðŽÀs‚µ‚Ü‚·B");
+		io::log("ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã‚’çµ‚äº†ã™ã‚‹ãªã‚‰ESCã‚­ãƒ¼ã‚’æŠ¼ã—ã¦ãã ã•ã„ã€‚");
+		io::log("ãã‚Œä»¥å¤–ã‚’æŠ¼ã•ã‚ŒãŸå ´åˆã€ã‚‚ã†ä¸€åº¦ãƒã‚§ãƒƒã‚¯ã‚’å®Ÿè¡Œã—ã¾ã™ã€‚");
 
 		if (_getch() == 0x1b)
 			break;
@@ -67,7 +67,7 @@ int main(void)
 		io::logFlash();
 	}
 
-	// ³íI—¹
+	// æ­£å¸¸çµ‚äº†
 	return 0;
 }
 
